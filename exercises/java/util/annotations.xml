@@ -1,0 +1,5 @@
+<root>
+    <item name='java.util.LinkedList E get(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>
