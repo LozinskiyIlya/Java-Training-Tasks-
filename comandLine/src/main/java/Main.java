@@ -1,6 +1,10 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -11,13 +15,17 @@ import java.util.StringTokenizer;
 
 public class Main {
     private static String command;
+    private static String argument;
     private static List<String> arguments = new LinkedList<>();
     private static Integer sequencer = 0;
 
     public static void main(String[] args) throws IOException {
+
+        /*     CdCommand currentWay = new CdCommand(argument);
         while (true) {
             parseLine(new BufferedReader(new InputStreamReader(System.in)));
-            switch (command) {
+            new DirCommand(argument).executeCommand();
+         /*   switch (command) {
                 case "dir":
                     DirCommand dir = new DirCommand();
                     dir.executeCommand();
@@ -31,7 +39,7 @@ public class Main {
                     System.out.println("Wrong command. Expected: command_name argument1, argument2.... argumentN ");
                     break;
             }
-        }
+        }*/
     }
 
     private static void parseLine(BufferedReader reader) throws IOException {
@@ -44,8 +52,12 @@ public class Main {
         String ars = received.substring(command.length() + 1, received.length());
         StringTokenizer tokenizer = new StringTokenizer(ars, " ");
         while (tokenizer.hasMoreTokens()) {
-            arguments.add(tokenizer.nextToken());
+            // TODO: change String to Collection(List)
+            // arguments.add(tokenizer.nextToken());
+            argument = tokenizer.nextToken();
         }
+        System.out.println(command);
+        System.out.println(argument);
     }
 
     private static String validateInput(BufferedReader reader) throws IOException {
