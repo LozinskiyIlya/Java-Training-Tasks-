@@ -17,14 +17,13 @@ public class Main {
         System.out.println();
         System.out.println(visited);
     }
-    public static String parseLine() throws IOException {
+    private static String parseLine() throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите путь к файлу/каталогу");
-        String result = input.readLine();
-        return result;
+        return input.readLine();
     }
 
-    public static LinkedList<String> walkTroughTheFileTree (String input){
+    private static LinkedList<String> walkTroughTheFileTree(String input){
         Path path = Paths.get(input).toAbsolutePath();
         System.out.println(path);
         List<String> visited = new LinkedList<>();
@@ -51,11 +50,17 @@ public class Main {
                     System.out.println("->");
                     path = currentPath;
                     children = new File(path.toString()).list();
-                    if (children.length == 0) {
+                    try {
+                        if (children.length == 0) {
+                            path = path.getParent();
+                            children = new File(path.toString()).list();
+                        }
+                        i = -1;
+                    }catch (NullPointerException e){
                         path = path.getParent();
                         children = new File(path.toString()).list();
+                        i = -1;
                     }
-                    i = -1;
                 } else if (i == children.length - 1) {
                     path = path.getParent();
                     children = new File(path.toString()).list();
