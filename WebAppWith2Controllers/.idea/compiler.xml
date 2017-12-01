@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Qwe" />
+        <module name="SpringMVCSample" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Qwe" target="1.7" />
+      <module name="SpringMVCSample" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

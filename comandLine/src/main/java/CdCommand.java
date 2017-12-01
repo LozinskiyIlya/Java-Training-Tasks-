@@ -1,31 +1,40 @@
 import java.io.File;
-import java.util.List;
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 
 
 // cd - перейти в диреторию, путь к которой задан первым аргументом
 public class CdCommand implements Command {
 
-    private String argument;
-    private String currentDirectory;
+    private Path currentDir;
+    private boolean success;
 
-    public CdCommand(String argument) {
-        this.argument = argument;
+    public CdCommand(Path currentDir) {
+        this.currentDir = currentDir;
     }
 
-    public String getArgument() {
-        return argument;
+    public void setCurrentDir(Path currentDir) {
+        this.currentDir = currentDir;
     }
 
-    public String getCurrentDirectory() {
-        return currentDirectory;
+    public Path getCurrentDir() {
+        return currentDir;
     }
 
     @Override
     public void executeCommand() {
-        File file = new File(currentDirectory);
-        String[] children = file.list();
-//        if()
-        System.out.println("You are now in: " + argument);
+        if (!Files.exists(currentDir)) {
+            System.out.println("Wrong argument. File/Directory does not exist");
+            currentDir=currentDir.getParent();
+        }
+        System.out.println("You are now at: " + currentDir);
+        success = true;
+    }
+
+    @Override
+    public boolean success() {
+        return success;
     }
 }

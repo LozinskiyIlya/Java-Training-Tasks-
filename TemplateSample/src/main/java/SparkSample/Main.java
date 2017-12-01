@@ -9,9 +9,9 @@ import static spark.Spark.*;
 
 public class Main {
     public static void main(String[] args) {
-       get("/hello", (req,res) -> {Map<String, Object> model = new HashMap<>();
-           return new FreeMarkerEngine().render(
-                   new ModelAndView(model, "C:\\Users\\РС\\Desktop\\MyVariant.ftl")
-           );});
+      Map map = new HashMap();
+      map.put("name","Sam");
+
+      get("/hello", (res , req)-> new ModelAndView(map,"hello"));
     }
 }

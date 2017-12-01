@@ -11,19 +11,20 @@ import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Main {
+public class FileTreeTest {
     public static void main(String[] args) throws IOException {
         LinkedList<String> visited = walkTroughTheFileTree(parseLine());
         System.out.println();
         System.out.println(visited);
     }
+
     private static String parseLine() throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите путь к файлу/каталогу");
         return input.readLine();
     }
 
-    private static LinkedList<String> walkTroughTheFileTree(String input){
+    private static LinkedList<String> walkTroughTheFileTree(String input) {
         Path path = Paths.get(input).toAbsolutePath();
         System.out.println(path);
         List<String> visited = new LinkedList<>();
@@ -56,7 +57,7 @@ public class Main {
                             children = new File(path.toString()).list();
                         }
                         i = -1;
-                    }catch (NullPointerException e){
+                    } catch (NullPointerException e) {
                         path = path.getParent();
                         children = new File(path.toString()).list();
                         i = -1;
@@ -65,6 +66,7 @@ public class Main {
                     path = path.getParent();
                     children = new File(path.toString()).list();
                     i = -1;
+                    System.out.println();
                 }
             }
         }
