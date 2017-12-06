@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>NewPost</title>
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"></link>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body class="bg-dark">
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div th:include="navbar :: copy"></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-md-6 ">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="PostText">PostText</label>
+                            <textarea type="email" class="form-control" id="PostText"
+                                      placeholder="What u think?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+</body>
+</html>
