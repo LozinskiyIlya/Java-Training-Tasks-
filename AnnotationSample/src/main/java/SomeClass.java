@@ -2,7 +2,7 @@
 
 @MyAnnotation("aaa")
 public class SomeClass {
-String name;
+private String name;
     public SomeClass(String name) {
    this.name=name;
     }
