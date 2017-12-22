@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>BaseLayout</title>
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"></link>
+    <style>
+        .newpost {
+            position: relative;
+            top: 86px;
+        }
+
+        .data {
+            position: relative;
+            left: 351px;
+            bottom: 15px;
+        }
+
+        .general {
+            background-color: lightgray;
+        }
+
+        .likes {
+
+        }
+
+        .reposts {
+
+        }
+    </style>
+</head>
+<body class="general">
+<div class="container-fluid">
+    <div th:include="parts/navbar :: nav">
+    </div>
+    <div data-layout-fragment="content">
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/popper.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/custom.js"></script>
+</body>
+</html>
+
+<!--<footer class="container" th:if="${#lists.size(posts)} &gt; 3" th:="parts/footer :: footer"></footer>-->
+

@@ -1,39 +1,39 @@
 package org.masa.ayanoter.models;
 
+
+import com.mysql.jdbc.Blob;
+
+import javax.persistence.*;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer id;
+
     public String login;
-    public String password;
-    public String email;
-    public String name;
-    public String lastName;
-    public Date firstTimeRegistred;
 
-    public List<User> subscribes;
-    public List<User> subscribers;
-    public List<Post> posts;
+    public java.sql.Blob image;
 
-    public User() {
-        firstTimeRegistred = new Date();
-        subscribes = new ArrayList<>();
-        subscribers = new ArrayList<>();
-        posts = new ArrayList<>();
+
+    @OneToMany (mappedBy = "user")
+    @OrderBy("date DESC")
+    public List<Post> posts = new ArrayList<>();
+
+    @OneToMany (mappedBy = "user")
+    public List<Comment> comments = new ArrayList<>();
+
+
+    public Integer getId() {
+        return id;
     }
 
-    public User(String login, String password, String email, String name, String lastName) {
-        this.login = login;
-        this.password = password;
-        this.email = email;
-        this.name = name;
-        this.lastName = lastName;
-        firstTimeRegistred = new Date();
-        subscribes = new ArrayList<>();
-        subscribers = new ArrayList<>();
-        posts = new ArrayList<>();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLogin() {
@@ -44,62 +44,6 @@ public class User {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Date getFirstTimeRegistred() {
-        return firstTimeRegistred;
-    }
-
-    public void setFirstTimeRegistred(Date firstTimeRegistred) {
-        this.firstTimeRegistred = firstTimeRegistred;
-    }
-
-    public List<User> getSubscribes() {
-        return subscribes;
-    }
-
-    public void setSubscribes(List<User> subscribes) {
-        this.subscribes = subscribes;
-    }
-
-    public List<User> getSubscribers() {
-        return subscribers;
-    }
-
-    public void setSubscribers(List<User> subscribers) {
-        this.subscribers = subscribers;
-    }
-
     public List<Post> getPosts() {
         return posts;
     }
@@ -107,4 +51,21 @@ public class User {
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public java.sql.Blob getImage() {
+        return image;
+    }
+
+    public void setImage( java.sql.Blob image) {
+        this.image = image;
+    }
+
 }

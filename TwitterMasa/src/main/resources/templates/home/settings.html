@@ -1,20 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html data-layout-decorator="layouts/base">
 <head>
-    <meta charset="UTF-8"/>
-    <title>NavigationBar</title>
-    <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.css"></link>
-    <script src="/js/jquery.js"></script>
-    <script src="/js/popper.js"></script>
-    <script src="/js/bootstrap.js"></script>
+    <title>Settings</title>
 </head>
 <body class="bg-dark">
-<div class="container-fluid">
-    <div th:include="navbar :: copy">
-    </div>
+<div data-layout-fragment="content">
     <div class="row">
         <div class="col"></div>
         <div class="col-6">

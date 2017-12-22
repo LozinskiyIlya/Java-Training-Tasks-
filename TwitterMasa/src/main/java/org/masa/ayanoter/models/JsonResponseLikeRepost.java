@@ -1,15 +1,15 @@
 package org.masa.ayanoter.models;
 
-public class JsonResponse {
+public class JsonResponseLikeRepost {
 
     private String status = "";
     private String errorMessage = "";
     private String l_count;
     private String r_count;
 
-    public JsonResponse(String ok, String s, Post post) {
-        this.l_count=String.valueOf(post.likeCount);
-        this.r_count = String.valueOf(post.repostCount);
+    public JsonResponseLikeRepost(String ok, String s, Post post) {
+        this.l_count=String.valueOf(post.l_count);
+        this.r_count = String.valueOf(post.r_count);
         this.status = ok;
         this.errorMessage = s;
     }

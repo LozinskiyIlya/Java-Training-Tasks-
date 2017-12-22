@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html data-layout-decorator="layouts/base">
 <head>
-    <title>News</title>
+    <title>Profile</title>
 </head>
 <body class="general">
 <div data-layout-fragment="content">
+    <div class="row ">
+        <img class="img-fluid col-12" alt="100%x250" style="height: 250px; width: 100%; display: block"
+             src="http://minecraft-double.ru/uploads/posts/2015-04/1429715156_maxresdefault.jpg"/>
+    </div>
     <div class="row">
         <div class="col-md-3 order-1 order-md-1 mb-3" th:include="parts/subscribes :: subs">
         </div>
@@ -19,5 +23,3 @@
 </div>
 </body>
 </html>
-
-<!--th:if="${#lists.size(posts) > '3'}"-->
